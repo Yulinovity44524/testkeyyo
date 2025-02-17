@@ -1,5 +1,6 @@
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext
+import os
 
 def start(update: Update, context: CallbackContext) -> None:
     """Обработчик команды /start, показывает меню выбора"""
@@ -19,7 +20,11 @@ def button(update: Update, context: CallbackContext) -> None:
 
 def main() -> None:
     """Запуск бота"""
-    updater = Updater("ВАШ_ТОКЕН_БОТА", use_context=True)
+    token = os.getenv("BOT_TOKEN")  # Получаем токен из переменных окружения
+    if not token:
+        raise ValueError("Токен бота не найден! Убедитесь, что переменная BOT_TOKEN установлена.")
+    
+    updater = Updater(token, use_context=True)
     
     updater.dispatcher.add_handler(CommandHandler('start', start))
     updater.dispatcher.add_handler(CallbackQueryHandler(button))
@@ -27,5 +32,5 @@ def main() -> None:
     updater.start_polling()
     updater.idle()
 
-if name == 'main':
+if __name__ == '__main__':
     main()
