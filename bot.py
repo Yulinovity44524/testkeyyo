@@ -20,7 +20,7 @@ def button(update: Update, context: CallbackContext) -> None:
 
 def main() -> None:
     """Запуск бота"""
-    token = os.getenv("BOT_TOKEN")  # Получаем токен из переменных окружения
+    token = os.getenv("7835506064:AAGyhtbS72oN0EyXfOI_HDNTaUtYb1pkrS8")  # Получаем токен из переменных окружения
     if not token:
         raise ValueError("Токен бота не найден! Убедитесь, что переменная BOT_TOKEN установлена.")
     
