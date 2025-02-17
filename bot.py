@@ -1,6 +1,6 @@
+import os
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext
-import os
 
 def start(update: Update, context: CallbackContext) -> None:
     """Обработчик команды /start, показывает меню выбора"""
