@@ -19,7 +19,7 @@ def button(update: Update, context: CallbackContext) -> None:
 
 def main() -> None:
     """Запуск бота"""
-    updater = Updater("7835506064:AAGyhtbS72oN0EyXfOI_HDNTaUtYb1pkrS8", use_context=True)
+    updater = Updater("ВАШ_ТОКЕН_БОТА", use_context=True)
     
     updater.dispatcher.add_handler(CommandHandler('start', start))
     updater.dispatcher.add_handler(CallbackQueryHandler(button))
